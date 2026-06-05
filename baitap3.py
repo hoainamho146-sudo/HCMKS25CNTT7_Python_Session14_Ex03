@@ -62,7 +62,6 @@ def display_menu():
 
 
 def validate_score(score_input):
-    """Kiểm tra điểm hợp lệ"""
     score_input = score_input.strip()
     if score_input.replace(".", "", 1).isdigit():
         score = float(score_input)
@@ -71,14 +70,12 @@ def validate_score(score_input):
     return False
 
 def find_student_by_id(student_list, student_id):
-    """Tìm học viên theo mã"""
     for student in student_list:
         if student["student_id"] == student_id:
             return student
     return None
 
 def display_students(student_list):
-    """Hiển thị danh sách học viên"""
     if len(student_list) == 0:
         print("Danh sách học viên hiện đang trống.")
         return
@@ -91,8 +88,6 @@ def display_students(student_list):
         )
 
 def add_student(student_list):
-    """Thêm học viên mới"""
-
     while True:
         student_id = input("Nhập mã học viên: ").strip().upper()
         if find_student_by_id(student_list, student_id):
@@ -131,7 +126,6 @@ def add_student(student_list):
 
 
 def update_score(student_list):
-    """Cập nhật điểm học viên"""
     student_id = input("Nhập mã học viên cần cập nhật: ").strip().upper()
     student = find_student_by_id(student_list, student_id)
     if student is None:
@@ -154,7 +148,6 @@ def update_score(student_list):
 
 
 def get_rank(average_score):
-    """Xếp loại học lực"""
     if average_score >= 8:
         return "Giỏi"
     elif average_score >= 6.5:
@@ -165,7 +158,6 @@ def get_rank(average_score):
         return "Yếu"
 
 def evaluate_students(student_list):
-    """Đánh giá học lực"""
     if len(student_list) == 0:
         print("Danh sách học viên hiện đang trống.")
         return
